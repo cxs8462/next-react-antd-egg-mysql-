@@ -1,0 +1,31 @@
+.art-page{
+  transition: all 2s ease;
+}
+.art{
+  padding: 1rem;
+    text-align: center;
+    background: white;
+    color: #ccc;
+}
+.art-tag span{
+    margin-right: 1rem;
+}
+.art-content{
+    padding: 1rem;
+    text-align: left;
+    color: black;
+}
+.art-nav{
+    width: 20rem;
+    background: white;
+  }
+  .nav-title p{
+    text-align: center;
+    font-size: 18px;
+    line-height: 40px;
+    margin-bottom: 0 !important ;
+  }
+  .art-menu{
+    padding: 1rem;
+  
+  }

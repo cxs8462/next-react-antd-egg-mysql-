@@ -1,0 +1,10 @@
+.lists-box{
+    background: white;
+    font-size: 15px;
+}
+.list-btn{
+    text-align: center;
+}
+.list-btn button:first-child{
+    margin-right: 1rem;
+}

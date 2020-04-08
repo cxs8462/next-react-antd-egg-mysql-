@@ -1,0 +1,15 @@
+.login-box{
+    text-align: center;
+}
+.login-card{
+    width: 400px;
+    height: 300px;
+    margin: 150px auto;
+}
+.login-input{
+    margin-top: 1rem;
+}
+.login-card button{
+    width: 100%;
+    margin-top: 1rem;
+}

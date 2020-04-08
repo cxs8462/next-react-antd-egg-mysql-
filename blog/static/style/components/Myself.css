@@ -1,0 +1,21 @@
+.self-box{
+    margin-bottom: 0.5rem;
+    background:white;
+    width: 20rem;
+    text-align: center; 
+
+}
+.self-main{
+}
+.self-icon{
+    width: 6rem;
+    height: 6rem;
+    border-radius: 100%;
+}
+.self-text{
+    margin:0.5rem 0;
+    font-size: 15px;
+}
+.self-touch{
+    margin: 0.5rem 0.3rem 0.5rem 0;
+}
