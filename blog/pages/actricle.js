@@ -1,21 +1,30 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import Head from 'next/head'
 import { Row, Col,Breadcrumb,Affix,BackTop} from 'antd'
 import {UnorderedListOutlined,FileProtectOutlined,FieldTimeOutlined,HomeOutlined,FileTextOutlined} from '@ant-design/icons'
-import Header from '../components/Header'
+import dy from 'next/dynamic'
+const Footer = dy(import('../components/Footer'))
+const Header = dy(import('../components/Header'))
+const Myself = dy(import('../components/Myself'))
+const Marnav = dy(import('markdown-navbar'))
 import '../static/style/pages/index.css'
-import Myself from '../components/Myself'
-import Footer from '../components/Footer'
 import '../static/style/pages/actricle.css'
-import Marnav from 'markdown-navbar'
 import 'markdown-navbar/dist/navbar.css'
 import axios from 'axios'
 import marked from 'marked'
 import heighli from 'highlight.js'
 import 'highlight.js/styles/monokai-sublime.css'
+import Link from 'next/link'
+import {CSSTransition} from 'react-transition-group'
+
 function Actricle(props){
-  let [data,setData]=useState(props)
+  const data=props
   const renderer=new marked.Renderer()
+  const [inout,setInout]=useState(false)
+  useEffect(()=>{
+    setInout(true)
+  },[])
+
   marked.setOptions({
     renderer:renderer,
     gfm:true,
@@ -35,20 +44,30 @@ function Actricle(props){
         <title>文章</title>
       </Head>
       <Header/>
+      <CSSTransition
+           in={inout}
+            classNames='fade'
+            timeout={1000}
+            unmountOnExit={true}
+            >
       <Row className='comm-main'  type='flex' justify='center'>
         <Col className='comm-left' xs={24} sm={24} md={14} lg={13} xl={13}>
         <Breadcrumb>
-            <Breadcrumb.Item href='/'>
+            <Breadcrumb.Item>
               <HomeOutlined />
-              <span>Home</span>
+              <Link prefetch  href='/'>
+                <a>Home</a>
+              </Link>
             </Breadcrumb.Item>
-            <Breadcrumb.Item href='/list'>
+            <Breadcrumb.Item>
               <FileTextOutlined />
-              <span>所有文章</span>
+              <Link prefetch  href='/list'>
+                <a>所有文章</a>
+              </Link>
             </Breadcrumb.Item>
             <Breadcrumb.Item >
             <FileProtectOutlined />
-              <span>文章页</span>
+                <a>文章页</a>
             </Breadcrumb.Item>
           </Breadcrumb>
           <div className='art'>
@@ -74,6 +93,7 @@ function Actricle(props){
           </Affix>
         </Col>
       </Row>
+      </CSSTransition>
       <Footer/>
       <BackTop/>
     </div>

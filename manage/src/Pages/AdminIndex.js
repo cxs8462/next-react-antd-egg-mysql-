@@ -1,9 +1,4 @@
 import React,{useState,useEffect} from 'react';
-import Write from '../Components/Write'
-import SetHead from '../Components/SetHead'
-import Self from '../Components/Self'
-import Lists from '../Components/Lists'
-import Type from '../Components/Type'
 import { Layout, Menu, Breadcrumb } from 'antd';
 import {
   DesktopOutlined,
@@ -12,7 +7,8 @@ import {
   TeamOutlined,
   UserOutlined,
 } from '@ant-design/icons'
-import { Route } from 'react-router-dom';
+import {NavLink} from 'react-router-dom'
+import {renderRoutes} from 'react-router-config'
 const { Header, Content, Footer, Sider } = Layout;
 
 function AdminIndex (props){
@@ -104,11 +100,12 @@ function AdminIndex (props){
           </Header>
           <Content  style={{ margin: '1rem 1rem' }}>
             <div className="site-layout-background" style={{  minHeight: 360 }}>
-              <Route path='/admin' exact component={Write}></Route>
+            {renderRoutes(props.route.routes)}
+              {/* <Route path='/admin' exact component={Write}></Route>
               <Route  path='/admin/sethead' exact component={SetHead}></Route>
               <Route path='/admin/setself' exact component={Self}></Route>
               <Route path='/admin/lists' exact component={Lists}></Route>
-              <Route path='/admin/settype' exact component={Type}></Route>
+              <Route path='/admin/settype' exact component={Type}></Route> */}
             </div>
           </Content>
           <Footer style={{ textAlign: 'center' }}>使用React+Antd搭建</Footer>

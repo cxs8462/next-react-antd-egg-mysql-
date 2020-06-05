@@ -4,6 +4,7 @@
     overflow: hidden;
     height: 3.5rem;
     border-bottom: 1px solid #cccccc;
+    transition: .7s ease-in-out;
 }
 .header-logo{
     color: #1e90ff;

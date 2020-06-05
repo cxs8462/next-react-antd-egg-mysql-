@@ -1,16 +1,20 @@
-import React,{useState} from 'react'
+import React from 'react'
 import Head from 'next/head'
 import { Row, Col,Breadcrumb,BackTop} from 'antd'
 import {HomeOutlined} from '@ant-design/icons'
-import Header from '../components/Header'
+import dy from 'next/dynamic'
+const Footer = dy(import('../components/Footer'))
+const Header = dy(import('../components/Header'))
+const Myself = dy(import('../components/Myself'))
+const Lists = dy(import('../components/Lists'))
 import '../static/style/pages/index.css'
-import Myself from '../components/Myself'
-import Lists from '../components/Lists'
-import Footer from '../components/Footer'
 import axios from 'axios'
+import Link from 'next/link'
+
+
 
 function App(getData){
-  const [data,setData]=useState(getData.data)
+  const data=getData.data
   return(
     <div>
       <Head>
@@ -20,9 +24,11 @@ function App(getData){
       <Row className='comm-main'  type='flex' justify='center'>
         <Col className='comm-left' xs={24} sm={24} md={14} lg={13} xl={13}>
           <Breadcrumb >
-            <Breadcrumb.Item href='/'>
-              <HomeOutlined />
-              <span>Home</span>
+            <Breadcrumb.Item>
+            <HomeOutlined />
+              <Link  href='/'>
+                <span>Home</span>
+              </Link>
             </Breadcrumb.Item>
           </Breadcrumb>
           <Lists List={data} name='最新文章'></Lists>

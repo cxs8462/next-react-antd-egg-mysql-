@@ -1,16 +1,14 @@
 import React from 'react';
-import {BrowserRouter as Router,Link,Route} from 'react-router-dom'
-import Login from './Pages/Login'
-import Admin from './Pages/AdminIndex'
-import './static/Pages/public.css'
-function Main(){
+import {BrowserRouter} from 'react-router-dom'
+import {renderRoutes} from 'react-router-config'
+import routes from './router/router'
+
+function router(){
     return (
-        <div>
-            <Router>
-                <Route path='/' exact component={Login}></Route>
-                <Route path='/admin'  component={Admin}></Route>
-            </Router>
-        </div>
+        <BrowserRouter>
+            {renderRoutes(routes)}
+        </BrowserRouter>
     )
 }
-export default Main
+
+export default router
