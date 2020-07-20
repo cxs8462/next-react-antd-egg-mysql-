@@ -1,6 +1,6 @@
  # 个人博客项目
  ## 项目地址体验地址
- * 前台 http://blog.cxsboke.club/
+ * 前台 http://www.cxsboke.club:3000/
  * 后台 http://blogmanage.cxsboke.club/
  * 账号密码 cxs 123
  ## 技术栈
